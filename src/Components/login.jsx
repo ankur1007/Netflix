@@ -1,7 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Header from "./Header";
+import { Validation } from "./Formvalidation";
 const Login = () => {
   const [isSignedIn, setisSignedIn] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const email = useRef(null);
+  const password = useRef(null);
+
+  const handleButtonSubmit = () => {
+    let message = Validation(email.current.value, password.current.value);
+    console.log(email.current.value, password.current.value);
+    setErrorMessage(message);
+  };
 
   const signedin = () => {
     setisSignedIn(!isSignedIn);
@@ -20,17 +31,22 @@ const Login = () => {
           <Header />
         </div>
         <div className="absolute inset-0 flex justify-center items-center">
-          <form className="bg-black/70 rounded-lg flex flex-col  w-6/24 m-3 p-6 text-white">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="bg-black/70 rounded-lg flex flex-col  w-6/24 m-3 p-6 text-white"
+          >
             <div className="p-6 m-3">
               <h1 className="text-3xl font-bold mb-8 ">
                 {isSignedIn ? "Sign In" : "Sign Up"}
               </h1>
               <input
+                ref={email}
                 placeholder="Email or mobile number"
                 type="text"
                 className="mb-4 p-5 w-full placeholder-gray-200 focus:outline-white  bg-zinc-900 rounded"
               ></input>
               <input
+                ref={password}
                 placeholder="Password"
                 type="password"
                 className="p-5 mb-6 w-full bg-zinc-900 rounded text-white placeholder-gray-400 focus:outline-white"
@@ -42,9 +58,11 @@ const Login = () => {
                   className="p-5 mb-6 w-full bg-zinc-900 rounded text-white placeholder-gray-400 focus:outline-white"
                 ></input>
               )}
+              <p className="text-red-600">{errorMessage}</p>
               <button
                 type="submit"
                 className=" w-full bg-red-600 hover:bg-red-700 font-semibold py-3 rounded mb-4 cursor-pointer"
+                onClick={handleButtonSubmit}
               >
                 {isSignedIn ? "Sign In" : "Sign Up"}
               </button>

@@ -4,20 +4,24 @@ import Header from "./Header";
 import { signOut } from "firebase/auth";
 import { auth } from "../Utilis/firebase";
 import { options } from "../Utilis/constant";
+import { useDispatch } from "react-redux";
+import { addNowPlayingMovies } from "../Utilis/movieSlice";
 
 const Browse = () => {
+  const dispatch = useDispatch();
   const getNowPlaying = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
       options
     );
     const movies = await data.json();
-    console.log(movies);
+    console.log(movies.results);
+    dispatch(addNowPlayingMovies(movies.results));
   };
   useEffect(() => {
     getNowPlaying();
   }, []);
-  
+
   const handleSignout = () => {
     signOut(auth)
       .then(() => {

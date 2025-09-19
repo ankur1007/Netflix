@@ -8,3 +8,7 @@
     - signup form
     -form validation
     -signup user account
+    -sign in user account
+    -signin user API
+    -created  the redux store with user slice
+    -

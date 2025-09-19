@@ -6,10 +6,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+
 const Login = () => {
   const [isSignedIn, setisSignedIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-
   const email = useRef(null);
   const password = useRef(null);
 
@@ -32,6 +32,7 @@ const Login = () => {
           // Signed up
           const user = userCredential.user;
           console.log(user);
+
           // ...
         })
         .catch((error) => {

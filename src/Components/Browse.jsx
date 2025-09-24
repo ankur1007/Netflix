@@ -20,8 +20,8 @@ const Browse = () => {
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-between p-4 bg-gradient-to-b from-black to-gray-400 shadow-md">
+    <div className="relative">
+      <div className="absolute top-0 left-0 z-20 w-full flex items-center justify-between p-4 bg-gradient-to-b from-black/80 to-transparent">
         <Header />
         <button
           className=" px-5 py-2 rounded-full text-white font-semibold bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 transition duration-300 shadow-lg cursor-pointer"

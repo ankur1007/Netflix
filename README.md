@@ -11,4 +11,8 @@
     -sign in user account
     -signin user API
     -created  the redux store with user slice
+    -created the movie slice
+    -Created the browse page
+    -Created the Videobackground and videotitle
+    -VideoTitle and videobg  in main container
     -

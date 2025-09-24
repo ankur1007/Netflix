@@ -15,7 +15,7 @@ const Login = () => {
 
   const handleButtonSubmit = () => {
     let message = Validation(email.current.value, password.current.value);
-    console.log(email.current.value, password.current.value);
+
     setErrorMessage(message);
 
     if (message) {
@@ -31,7 +31,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+       C
 
           // ...
         })
@@ -50,7 +50,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
+      
 
           // ...
         })

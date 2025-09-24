@@ -6,8 +6,8 @@ const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
   if (!movies) return; //also known as early return
 
-  const mainMovies = movies[15];
-  console.log(mainMovies);
+  const mainMovies = movies[6];
+
 
   const { title, overview, id } = mainMovies;
   return (

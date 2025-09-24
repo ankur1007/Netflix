@@ -12,7 +12,7 @@ const useTrailer = (movieId) => {
 
     const video = async () => {
       const videoData = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`,
+        "https://api.themoviedb.org/3/movie/" + movieId + "/videos?language=en-US",
         options
       );
       const data = await videoData.json();
@@ -23,17 +23,13 @@ const useTrailer = (movieId) => {
 
       const trailer = filterdata.length ? filterdata : data.results[0];
 
-      console.log(trailer);
+
       dispatch(addTrailer(trailer));
     };
     video();
   }, [movieId, dispatch]);
 
-  return (
-    <div>
-      <p>joi sakjfas</p>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default useTrailer;
